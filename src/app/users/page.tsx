@@ -6,7 +6,11 @@ import ScreenUsersMetrics from './_components/screen-users-metrics';
 import ManagerUser from './_components/manager-user';
 
 const ClientPage = () => {
-  return <div className="h-[920px] w-full"></div>;
+  return (
+    <div className="h-[920px] w-full">
+      <Header />
+    </div>
+  );
 };
 
 export default ClientPage;
