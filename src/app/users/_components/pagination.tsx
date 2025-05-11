@@ -1,5 +1,6 @@
 import { getCountUsers } from '@/app/_data-access/get-count-users';
 import { Button } from '@/components/ui/button';
+import { Label } from '@radix-ui/react-label';
 import { ChevronLeft, ChevronRight, Ellipsis } from 'lucide-react';
 
 const PaginationComponent = async () => {
@@ -53,7 +54,10 @@ const PaginationComponent = async () => {
 
       <div className="flex h-10 w-[179px] items-center gap-x-2 text-sm font-normal tracking-tighter">
         <span className="text-zinc-500">Itens por página</span>
-        <select className="flex h-10 w-[70px] items-center justify-between space-x-2 rounded-md border border-zinc-200 bg-white px-3 py-2 text-zinc-900">
+        <select
+          id="combox-page"
+          className="flex h-10 w-[70px] cursor-pointer items-center justify-between space-x-2 rounded-md border border-zinc-200 bg-white px-3 py-2 text-zinc-900"
+        >
           <option>10</option>
           <option>9</option>
           <option>8</option>
