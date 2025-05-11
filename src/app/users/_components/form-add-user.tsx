@@ -45,7 +45,11 @@ const FormAddUser = () => {
       await createUser(data);
 
       toast.success('Usuário adicionado com sucesso!', {
-        action: <Button variant={'outline'}>Fechar</Button>,
+        action: (
+          <Button variant={'outline'} onClick={() => toast.dismiss()}>
+            Fechar
+          </Button>
+        ),
       });
     } catch (error) {
       toast.error('Erro ao adicionar usuário!');
