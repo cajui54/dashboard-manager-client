@@ -3,6 +3,8 @@ import React, { use } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { User as Users } from '@prisma/client';
+import { Sheet, SheetTrigger } from '@/components/ui/sheet';
+import FormEditUser from './form-edit-user';
 interface ListUserProps {
   users: Users[];
 }
@@ -67,14 +69,18 @@ const ListUser = ({ users }: ListUserProps) => {
                 Inativo
               </Badge>
             )}
-
-            <Button
-              variant={'ghost'}
-              title="options"
-              className="h-10 w-10 rounded-full bg-transparent"
-            >
-              <EllipsisVertical />
-            </Button>
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button
+                  variant={'ghost'}
+                  title="options"
+                  className="h-10 w-10 rounded-full bg-transparent"
+                >
+                  <EllipsisVertical />
+                </Button>
+              </SheetTrigger>
+              <FormEditUser {...user} />
+            </Sheet>
           </div>
         </div>
       ))}

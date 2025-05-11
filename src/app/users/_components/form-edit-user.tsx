@@ -21,32 +21,22 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
-import { createUser } from '@/app/_actions/create-user';
 import { toast } from 'sonner';
+import { updateUser } from '@/app/_actions/update-user';
+import { editUserSchema, EditUserSchema } from './constants/edit-schema';
 
-const inputsDefault: CreateUserSchema = {
-  fullName: '',
-  email: '',
-  phone: '',
-  isWhats: false,
-  cpf: '',
-  rg: '',
-  isActive: true,
-};
-
-const FormAddUser = () => {
-  const form = useForm<CreateUserSchema>({
-    resolver: zodResolver(createUserSchema),
-    defaultValues: inputsDefault,
+const FormEditUser = (user: EditUserSchema) => {
+  const form = useForm<EditUserSchema>({
+    resolver: zodResolver(editUserSchema),
+    values: user,
   });
 
-  async function onSubmit(data: CreateUserSchema) {
+  async function onSubmit(data: EditUserSchema) {
     try {
-      await createUser(data);
-
-      toast.success('Usuário adicionado com sucesso!');
+      updateUser(data);
+      toast.success('Usuário(a) atualizado(a) com sucesso!');
     } catch (error) {
-      toast.error('Erro ao adicionar usuário!');
+      toast.error('Erro ao atualizar usuário(a)!');
     } finally {
       form.reset();
     }
@@ -57,7 +47,7 @@ const FormAddUser = () => {
     <SheetContent className="min-w-[560px] gap-10 overflow-y-auto overflow-x-hidden p-10">
       <div className="flex h-10 w-[480px] gap-x-2">
         <SheetTitle className="h-6 w-[432px] font-serif text-2xl font-normal tracking-tighter text-zinc-900">
-          Adicionar usuário
+          Editar usuário
         </SheetTitle>
         <SheetClose asChild>
           <Button
@@ -266,7 +256,7 @@ const FormAddUser = () => {
                 className="borde h-10 w-[93px] rounded-full px-4 py-2"
                 type="submit"
               >
-                Adicionar
+                Confirmar
               </Button>
             </div>
           </form>
@@ -276,4 +266,4 @@ const FormAddUser = () => {
   );
 };
 
-export default FormAddUser;
+export default FormEditUser;
