@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${interFont.variable} h-[992px] min-h-[800px] w-[1280px] overflow-y-auto antialiased`}
+        className={`${interFont.variable} h-[992px] min-h-[800px] w-[1280px] overflow-y-auto bg-white antialiased`}
       >
         <div className="flex">
           <NavbarLeft />

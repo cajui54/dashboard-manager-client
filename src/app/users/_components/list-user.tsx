@@ -10,7 +10,7 @@ interface ListUserProps {
 }
 const ListUser = ({ users }: ListUserProps) => {
   return (
-    <div className="mt-5 h-[450px] w-[960px] space-y-2">
+    <div className="mt-5 h-[520px] w-[960px] space-y-2">
       {users.map((user) => (
         <div
           key={user.id}

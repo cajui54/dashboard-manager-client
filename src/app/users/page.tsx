@@ -9,7 +9,7 @@ import FormAddUser from './_components/form-add-user';
 
 const ClientPage = () => {
   return (
-    <div className="w-full">
+    <div className="h-full w-full">
       <Header />
       <main className="m-5 h-[920px] w-full p-10">
         <div className="flex h-[60px] w-[960px] items-start justify-between pb-5">
