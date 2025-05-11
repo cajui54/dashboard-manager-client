@@ -1,11 +1,13 @@
+import { getCountUsers } from '@/app/_data-access/get-count-users';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, Ellipsis } from 'lucide-react';
 
-const PaginationComponent = () => {
+const PaginationComponent = async () => {
+  const countUsers = await getCountUsers();
   return (
     <div className="mb-10 mt-5 flex h-10 w-[960px] items-center justify-between font-sans">
       <div className="h-5 w-[91px] text-sm font-normal tracking-tighter text-zinc-500">
-        <span>5 de 294</span>
+        <span>{countUsers} de 294</span>
       </div>
 
       <div className="flex h-10 w-[372px] items-start gap-1">
