@@ -1,17 +1,31 @@
+'use client';
 import { EllipsisVertical, User } from 'lucide-react';
-import React, { use } from 'react';
+import { useSearchParams } from 'next/navigation';
+import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { User as Users } from '@prisma/client';
 import { Sheet, SheetTrigger } from '@/components/ui/sheet';
 import FormEditUser from './form-edit-user';
+
 interface ListUserProps {
   users: Users[];
 }
 const ListUser = ({ users }: ListUserProps) => {
+  const searchParams = useSearchParams();
+  const search = searchParams.get('search');
+
+  const filteredUsers = !search
+    ? users
+    : users.filter((user) => {
+        const regexSearch = new RegExp(search, 'i');
+        if (regexSearch.test(user.fullName)) {
+          return user;
+        }
+      });
   return (
     <div className="mt-5 h-[520px] w-[960px] space-y-2">
-      {users.map((user) => (
+      {filteredUsers.map((user) => (
         <div
           key={user.id}
           className="flex h-20 w-full items-center justify-between rounded-lg border p-3 font-sans"

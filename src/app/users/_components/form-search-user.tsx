@@ -3,7 +3,7 @@ import React from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -23,6 +23,7 @@ const formSchema = z.object({
   }),
 });
 const FormSearchUser = () => {
+  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -31,7 +32,7 @@ const FormSearchUser = () => {
   });
 
   function onSubmit(data: z.infer<typeof formSchema>) {
-    console.log(data);
+    router.push(`/users?search=${data.search}`);
   }
   return (
     <Form {...form}>
