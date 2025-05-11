@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const Header = () => {
   return (
-    <header className="flex h-[72px] w-full items-center justify-between border-b border-custom-grey p-4 py-5 pl-6">
+    <header className="flex h-[72px] w-[1040px] items-center justify-between border-b border-custom-grey p-4 py-5 pl-6">
       <Button
         variant={'ghost'}
         size={'icon'}

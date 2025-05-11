@@ -5,7 +5,7 @@ import OptionsNav from './options-nav';
 
 const NavbarLeft = () => {
   return (
-    <nav className="relative h-[920px] w-60 border border-custom-grey">
+    <nav className="relative h-[920px] w-60 border-r border-custom-grey">
       <header className="h-[72px] w-60 border-b border-custom-grey py-5 pl-6">
         <Button className="font-[family-name:var(--font-inter) h-8 w-24 text-xs font-bold">
           Logo
